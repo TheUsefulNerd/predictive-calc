@@ -152,7 +152,7 @@
   ]
 },
   
-"Diabetes Readmision Prediction": {
+"Diabetes Readmission Prediction": {
 "title": "Diabetes Readmission Prediction",
 "page_title": "Diabetes Readmission Predictor",
 "page_icon": "\ud83d\udd12",
@@ -168,7 +168,10 @@
   },
   {
     "name": "Model Details",
-    "type": "model_details"
+    "type": "model_details",
+    "problem_statement": "The Diabetes Readmission Predictor utilizes clinical and demographic data to assess the likelihood of hospital readmission for patients with diabetes. This model aims to assist healthcare providers in identifying at-risk patients to improve care and reduce readmission rates.",
+    "description": "The dataset for this model comprises patient records, including medical history, lab test results, and demographic information. The objective is to predict diabetes readmission using features such as the number of lab procedures, medication information, and patient demographics."
+
   }
 ]
 }

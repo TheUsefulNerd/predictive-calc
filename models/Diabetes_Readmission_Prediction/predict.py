@@ -1,4 +1,4 @@
-from model import DiabetesModel
+from models.Diabetes_Readmission_Prediction.model import DiabetesModel
 
 model_path = 'models\Diabetes_Readmission_Prediction\saved_models\rf_model_selected.joblib'
 
