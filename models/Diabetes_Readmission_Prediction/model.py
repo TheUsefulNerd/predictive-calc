@@ -3,7 +3,12 @@ import joblib
 
 class DiabetesModel:
     def __init__(self, model_path: str):
-        self.model = joblib.load(model_path)
+        # Ensure the model file exists and is correctly loaded
+        try:
+            self.model = joblib.load(model_path)
+        except FileNotFoundError:
+            print(f"Error: Model file not found at {model_path}")
+            self.model = None  # Set to None if the file is missing
 
     def preprocess(self, data: pd.DataFrame) -> pd.DataFrame:
         # Perform necessary preprocessing steps, e.g., encoding, scaling
@@ -22,7 +27,7 @@ class DiabetesModel:
 
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 
-def model_details(model, model_name: str, X_train, y_train, X_test, y_test) -> None:
+def model_details(model, model_name: str, X_train_selected, y_train, X_test_selected, y_test) -> None:
     """
     Prints detailed information about the machine learning model, its performance on training and testing data, 
     and other relevant evaluation metrics.
@@ -42,15 +47,15 @@ def model_details(model, model_name: str, X_train, y_train, X_test, y_test) -> N
     print(model.get_params())
 
     # Training accuracy
-    train_score = model.score(X_train, y_train)
+    train_score = model.score(X_train_selected, y_train)
     print(f"\nTraining Accuracy: {train_score:.4f}")
 
     # Testing accuracy
-    test_score = model.score(X_test, y_test)
+    test_score = model.score(X_test_selected, y_test)
     print(f"Testing Accuracy: {test_score:.4f}")
 
     # Predictions on test data
-    y_pred = model.predict(X_test)
+    y_pred = model.predict(X_test_selected)
 
     # Detailed classification report
     print("\nClassification Report:")

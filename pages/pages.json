@@ -157,7 +157,7 @@
 "page_title": "Diabetes Readmission Predictor",
 "page_icon": "\ud83d\udd12",
 "model_predict_file_path": "models/Diabetes_Readmission_Prediction/predict.py",
-"model_function": "make_prediction",
+"model_function": "get_prediction",
 "model_detail_function": "model_details",
 "form_config_path": "form_configs/Diabetes_Readmission.json",
 "tabs": [
