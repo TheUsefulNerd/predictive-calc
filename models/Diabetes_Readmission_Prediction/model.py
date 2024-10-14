@@ -22,7 +22,7 @@ class DiabetesModel:
         input_df = pd.DataFrame([input_data])
         processed_data = self.preprocess(input_df)
         prediction = self.model.predict(processed_data)
-        return prediction[0]
+        return "No" if prediction[0] == 0 else "Yes"
 
 
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
